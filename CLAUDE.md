@@ -4,34 +4,33 @@ macOS Display P3 → sRGB colorspace fix for Minecraft. Delivered as a standalon
 
 ## Why it exists
 
-Modern Macs default to the Display P3 wide-color gamut. LWJGL creates an NSWindow without explicitly requesting sRGB, so macOS renders OpenGL output in P3 space — colors appear oversaturated vs. the game's intended palette.
+Modern Macs default to the Display P3 wide-color gamut. LWJGL creates an OpenGL window without requesting an alpha channel, so macOS composites it in P3 space — colors appear oversaturated vs. the game's intended palette.
 
-Fix: after the game window is created, call `[NSWindow setColorSpace:[NSColorSpace sRGBColorSpace]]` on every window via the ObjC runtime through JNA. The agent is a no-op on non-Mac.
+Fix: intercept `Display.create(PixelFormat)` via ASM bytecode transformation and prepend `pf = pf.withAlphaBits(8)`. Requesting alpha forces macOS to composite the window through the sRGB path.
 
 ## Project structure
 
 ```
-core/        — HueAgent (premain), DisplayDetector (SPI), MacColorSpace (JNA/ObjC calls)
-mc-b181/     — LWJGL 2 detector (Beta 1.8.1 through ~1.12.2); builds the distributable fat jar
+core/        — HueAgent (premain), PixelFormatTransformer (ASM ClassFileTransformer)
+mc-b181/     — build module; produces the distributable fat jar (no Java sources, core does all the work)
 ```
 
-## How the SPI works
+## How the transformer works
 
-`HueAgent` uses `ServiceLoader<DisplayDetector>` to find an implementation at runtime. Each `mc-*` module:
-1. Implements `DisplayDetector.isReady()` — returns true once the display is up for that version
-2. Registers via `META-INF/services/dev.hue.DisplayDetector`
-3. Builds a fat jar bundling `core` + itself + JNA; that jar is the drop-in
+`HueAgent.premain` registers `PixelFormatTransformer` as a `ClassFileTransformer`. When the JVM loads `org.lwjgl.opengl.Display`, ASM rewrites `create(PixelFormat)` to prepend `pf = pf.withAlphaBits(8)` before the original body runs.
 
 ## Adding a new version
 
+For newer LWJGL versions the entry point changes but the pattern is the same:
+
 1. Create `mc-<version>/` module
-2. Implement `DisplayDetector` — typically polls a static "is display created" method via reflection
-3. Register in `src/main/resources/META-INF/services/dev.hue.DisplayDetector`
+2. Add a `ClassFileTransformer` targeting the relevant LWJGL display/window creation method
+3. Register it in `HueAgent.premain` (or via a SPI if versions need to be kept separate)
 4. `build.gradle`: depend on `:core`, build fat jar with `Premain-Class: dev.hue.HueAgent`
 5. Add to `settings.gradle`
 
-**LWJGL 2** (≤1.12.2): poll `org.lwjgl.opengl.Display.isCreated()`
-**LWJGL 3** (≥1.13): poll `org.lwjgl.glfw.GLFW.glfwWindowShouldClose(handle) == false` — requires getting the window handle from `Minecraft.getInstance()` or similar
+**LWJGL 2** (≤1.12.2): patch `org.lwjgl.opengl.Display.create(PixelFormat)`
+**LWJGL 3** (≥1.13): equivalent pixel format / window hint lives in GLFW context creation — needs investigation
 
 ## Package root
 

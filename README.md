@@ -36,4 +36,4 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 
 ## How it works
 
-Java agent → polls until the LWJGL display is created → calls `[NSWindow setColorSpace:[NSColorSpace sRGBColorSpace]]` via the Objective-C runtime (JNA). No bytecode patching, no mod loader dependency.
+Java agent → bytecode-patches `Display.create(PixelFormat)` via ASM, prepending `pf = pf.withAlphaBits(8)`. Requesting an alpha channel causes macOS to composite the window through the sRGB path instead of Display P3. No mod loader dependency.
