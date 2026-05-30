@@ -1,6 +1,6 @@
 allprojects {
     group = 'dev.hue'
-    version = '1.0.0'
+    version = findProperty('releaseVersion') ?: '1.0.0-SNAPSHOT'
 }
 
 subprojects {
