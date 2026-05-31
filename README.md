@@ -28,6 +28,10 @@ Download from releases, or build locally (replace module with yours from the [su
 
 Safe to leave in all profiles — no-op on non-Mac and on versions without a detector.
 
+## How it works
+
+Java agent → bytecode-patches `Display.create(PixelFormat)` via ASM, prepending `pf = pf.withAlphaBits(8)`. Requesting an alpha channel causes macOS to composite the window through the sRGB path instead of Display P3. No mod loader dependency.
+
 ## Supported versions
 
 **Beta**
@@ -79,7 +83,3 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 | `hue-mc-a1202` | Alpha 1.2.0_02 |
 | `hue-mc-a1201` | Alpha 1.2.0_01 |
 | `hue-mc-a120` | Alpha 1.2.0 |
-
-## How it works
-
-Java agent → bytecode-patches `Display.create(PixelFormat)` via ASM, prepending `pf = pf.withAlphaBits(8)`. Requesting an alpha channel causes macOS to composite the window through the sRGB path instead of Display P3. No mod loader dependency.
