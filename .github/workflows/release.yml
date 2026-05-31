@@ -28,11 +28,11 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Build
-        run: ./gradlew :${{ steps.tag.outputs.module }}:build -PreleaseVersion=${{ steps.tag.outputs.version }}
+        run: ./gradlew :versions:${{ steps.tag.outputs.module }}:build -PreleaseVersion=${{ steps.tag.outputs.version }}
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           name: "${{ steps.tag.outputs.module }} v${{ steps.tag.outputs.version }}"
-          files: ${{ steps.tag.outputs.module }}/build/libs/*.jar
+          files: versions/${{ steps.tag.outputs.module }}/build/libs/*.jar
           generate_release_notes: true
