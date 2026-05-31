@@ -6,9 +6,9 @@ Modern Macs render OpenGL in Display P3 by default. Minecraft was designed for s
 
 ## Installation
 
-**1. Get the jar**
+**1. Get the jar for your version**
 
-Download from releases, or build:
+Download from releases, or build locally (replace module with yours from the [supported versions table](#supported-versions)):
 ```bash
 ./gradlew :mc-b181:build
 # → mc-b181/build/libs/hue-mc-b181-1.0.0.jar
@@ -32,7 +32,8 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 
 | Jar | Minecraft versions |
 |---|---|
-| `hue-mc-b181` | Beta 1.8.1 (LWJGL 2) |
+| `hue-mc-b181` | Beta 1.8.1 |
+| `hue-mc-b180` | Beta 1.8 |
 
 ## How it works
 
