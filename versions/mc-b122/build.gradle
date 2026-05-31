@@ -1,0 +1,12 @@
+dependencies {
+    implementation project(':core')
+}
+
+jar {
+    archiveBaseName = 'hue-mc-b122'
+    manifest {
+        attributes('Premain-Class': 'dev.hue.HueAgent')
+    }
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
