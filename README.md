@@ -44,7 +44,7 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 | `hue-mc-b162` | Beta 1.6.2 |
 | `hue-mc-b161` | Beta 1.6.1 |
 | `hue-mc-b160` | Beta 1.6 |
-| `hue-mc-b151` | Beta 1.5.1 |
+| `hue-mc-b151` | Beta 1.5_01 |
 | `hue-mc-b150` | Beta 1.5 |
 
 ## How it works
