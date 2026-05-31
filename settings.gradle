@@ -1,2 +1,2 @@
 rootProject.name = 'hue-mc'
-include 'core', 'mc-b160', 'mc-b161', 'mc-b162', 'mc-b163', 'mc-b164', 'mc-b165', 'mc-b166', 'mc-b170', 'mc-b172', 'mc-b173', 'mc-b180', 'mc-b181'
+include 'core', 'mc-b150', 'mc-b151', 'mc-b160', 'mc-b161', 'mc-b162', 'mc-b163', 'mc-b164', 'mc-b165', 'mc-b166', 'mc-b170', 'mc-b172', 'mc-b173', 'mc-b180', 'mc-b181'
