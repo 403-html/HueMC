@@ -30,7 +30,9 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 
 ## Supported versions
 
-| Jar | Minecraft versions |
+**Beta**
+
+| Jar | Version |
 |---|---|
 | `hue-mc-b181` | Beta 1.8.1 |
 | `hue-mc-b180` | Beta 1.8 |
@@ -58,6 +60,11 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 | `hue-mc-b102` | Beta 1.0.2 |
 | `hue-mc-b101` | Beta 1.0_01 |
 | `hue-mc-b100` | Beta 1.0 |
+
+**Alpha**
+
+| Jar | Version |
+|---|---|
 | `hue-mc-a126` | Alpha 1.2.6 |
 | `hue-mc-a125` | Alpha 1.2.5 |
 | `hue-mc-a1241` | Alpha 1.2.4_01 |
