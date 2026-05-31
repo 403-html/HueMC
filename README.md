@@ -58,6 +58,20 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 | `hue-mc-b102` | Beta 1.0.2 |
 | `hue-mc-b101` | Beta 1.0_01 |
 | `hue-mc-b100` | Beta 1.0 |
+| `hue-mc-a126` | Alpha 1.2.6 |
+| `hue-mc-a125` | Alpha 1.2.5 |
+| `hue-mc-a1241` | Alpha 1.2.4_01 |
+| `hue-mc-a1234` | Alpha 1.2.3_04 |
+| `hue-mc-a1232` | Alpha 1.2.3_02 |
+| `hue-mc-a1231` | Alpha 1.2.3_01 |
+| `hue-mc-a123` | Alpha 1.2.3 |
+| `hue-mc-a122b` | Alpha 1.2.2b |
+| `hue-mc-a122a` | Alpha 1.2.2a |
+| `hue-mc-a1211` | Alpha 1.2.1_01 |
+| `hue-mc-a121` | Alpha 1.2.1 |
+| `hue-mc-a1202` | Alpha 1.2.0_02 |
+| `hue-mc-a1201` | Alpha 1.2.0_01 |
+| `hue-mc-a120` | Alpha 1.2.0 |
 
 ## How it works
 
