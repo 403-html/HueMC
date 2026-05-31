@@ -10,18 +10,18 @@ Modern Macs render OpenGL in Display P3 by default. Minecraft was designed for s
 
 ## Installation
 
-**1. Get the jar for your version**
+**1. Get the jar**
 
-Download from releases, or build locally (replace module with yours from the [supported versions table](#supported-versions)):
+Download `hue-mc-universal-1.0.0.jar` from releases (works for all supported versions), or build locally:
 ```bash
-./gradlew :versions:mc-b181:build
-# → versions/mc-b181/build/libs/hue-mc-b181-1.0.0.jar
+./gradlew :versions:mc-universal:build
+# → versions/mc-universal/build/libs/hue-mc-universal-1.0.0.jar
 ```
 
 **2. Add to your launcher's JVM arguments**
 
 ```
--javaagent:/path/to/hue-mc-b181-1.0.0.jar
+-javaagent:/path/to/hue-mc-universal-1.0.0.jar
 ```
 
 | Launcher | Where |
@@ -37,6 +37,14 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 Java agent → bytecode-patches `Display.create(PixelFormat)` via ASM, prepending `pf = pf.withAlphaBits(8)`. Requesting an alpha channel causes macOS to composite the window through the sRGB path instead of Display P3. No mod loader dependency.
 
 ## Supported versions
+
+All versions listed below use LWJGL 2 with the same `Display.create(PixelFormat)` API — the same bytecode patch covers all of them. The per-version jars exist but are functionally identical to `hue-mc-1.0.0.jar`; use the universal jar unless you have a specific reason not to.
+
+**Universal**
+
+| Jar | Versions |
+|---|---|
+| `hue-mc-universal` | rd-132211 — Beta 1.8.1 |
 
 **Beta**
 
