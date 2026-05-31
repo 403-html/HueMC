@@ -55,6 +55,9 @@ Safe to leave in all profiles — no-op on non-Mac and on versions without a det
 | `hue-mc-b120` | Beta 1.2 |
 | `hue-mc-b112` | Beta 1.1_02 |
 | `hue-mc-b111` | Beta 1.1_01 |
+| `hue-mc-b102` | Beta 1.0.2 |
+| `hue-mc-b101` | Beta 1.0_01 |
+| `hue-mc-b100` | Beta 1.0 |
 
 ## How it works
 

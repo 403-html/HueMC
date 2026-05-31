@@ -1,6 +1,7 @@
 rootProject.name = 'hue-mc'
 include 'core'
-include 'versions:mc-b111', 'versions:mc-b112',
+include 'versions:mc-b100', 'versions:mc-b101', 'versions:mc-b102',
+        'versions:mc-b111', 'versions:mc-b112',
         'versions:mc-b120', 'versions:mc-b121', 'versions:mc-b122',
         'versions:mc-b130', 'versions:mc-b131',
         'versions:mc-b140', 'versions:mc-b141',
