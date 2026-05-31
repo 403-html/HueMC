@@ -1,12 +1,19 @@
-# hue
+<div align="center">
 
-Fixes oversaturated colors on Macs with P3 displays when running Minecraft.
+# HueMC
 
-Modern Macs render OpenGL in Display P3 by default. Minecraft was designed for sRGB — this agent corrects the window's colorspace at runtime without touching game files.
+**Display P3 → sRGB fix for old Minecraft on Mac**
+
+[![Download](https://img.shields.io/github/v/release/403-html/HueMC?label=download&color=brightgreen)](https://github.com/403-html/HueMC/releases/latest)
+[![License](https://img.shields.io/github/license/403-html/HueMC)](LICENSE)
+
+Modern Macs render OpenGL in Display P3 by default. Minecraft was designed for sRGB. This agent corrects the window's colorspace at runtime without touching game files.
 
 | Before | After |
 | ------ | ----- |
 | <img width="854" height="506" alt="image" src="https://github.com/user-attachments/assets/bbf7d31f-b9d5-40e8-b3c1-44030e8ce4e1" /> | <img width="850" height="508" alt="image" src="https://github.com/user-attachments/assets/2f17be77-ab66-4699-9ef2-3742004a91d4" /> |
+
+</div>
 
 ## Installation
 
@@ -30,7 +37,7 @@ Download `hue-mc-universal-1.0.0.jar` from releases (works for all supported ver
 | Prism / MultiMC | Instance → Edit → Settings → Java → Java arguments |
 | ATLauncher | Instance → Edit → Java/Minecraft → Java arguments |
 
-Safe to leave in all profiles — no-op on non-Mac and on versions without a detector.
+Safe to leave in all profiles. No-op on non-Mac and on versions without a detector.
 
 ## How it works
 
@@ -38,13 +45,13 @@ Java agent → bytecode-patches `Display.create(PixelFormat)` via ASM, prependin
 
 ## Supported versions
 
-All versions listed below use LWJGL 2 with the same `Display.create(PixelFormat)` API — the same bytecode patch covers all of them. The per-version jars exist but are functionally identical to `hue-mc-1.0.0.jar`; use the universal jar unless you have a specific reason not to.
+All versions listed below use LWJGL 2 with the same `Display.create(PixelFormat)` API, so the same bytecode patch covers all of them. The per-version jars exist but are functionally identical to `hue-mc-universal-1.0.0.jar`; use the universal jar unless you have a specific reason not to.
 
 **Universal**
 
 | Jar | Versions |
 |---|---|
-| `hue-mc-universal` | rd-132211 — Beta 1.8.1 |
+| `hue-mc-universal` | rd-132211 to Beta 1.8.1 |
 
 **Beta**
 
