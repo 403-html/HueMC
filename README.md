@@ -4,6 +4,10 @@ Fixes oversaturated colors on Macs with P3 displays when running Minecraft.
 
 Modern Macs render OpenGL in Display P3 by default. Minecraft was designed for sRGB — this agent corrects the window's colorspace at runtime without touching game files.
 
+| Before | After |
+| ------ | ----- |
+| <img width="854" height="506" alt="image" src="https://github.com/user-attachments/assets/bbf7d31f-b9d5-40e8-b3c1-44030e8ce4e1" /> | <img width="850" height="508" alt="image" src="https://github.com/user-attachments/assets/2f17be77-ab66-4699-9ef2-3742004a91d4" /> |
+
 ## Installation
 
 **1. Get the jar for your version**
