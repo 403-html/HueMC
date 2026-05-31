@@ -86,3 +86,11 @@ Java agent → bytecode-patches `Display.create(PixelFormat)` via ASM, prependin
 | `hue-mc-a1121` | Alpha 1.1.2_01 |
 | `hue-mc-a112` | Alpha 1.1.2 |
 | `hue-mc-a110` | Alpha 1.1.0 |
+| `hue-mc-a10174` | Alpha 1.0.17_04 |
+| `hue-mc-a10172` | Alpha 1.0.17_02 |
+| `hue-mc-a1016` | Alpha 1.0.16 |
+| `hue-mc-a1015` | Alpha 1.0.15 |
+| `hue-mc-a1014` | Alpha 1.0.14 |
+| `hue-mc-a1011` | Alpha 1.0.11 |
+| `hue-mc-a1051` | Alpha 1.0.5_01 |
+| `hue-mc-a104` | Alpha 1.0.4 |
