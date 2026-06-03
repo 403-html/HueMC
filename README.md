@@ -17,19 +17,13 @@ Modern Macs render OpenGL in Display P3 by default. Minecraft was designed for s
 
 ## Installation
 
-**1. Get the jar**
+### Method 1 — Download (recommended)
 
-Download `hue-mc-universal-1.0.0.jar` from releases (works for all supported versions), or build locally:
-```bash
-./gradlew :versions:mc-universal:build
-# → versions/mc-universal/build/libs/hue-mc-universal-1.0.0.jar
-```
-
-**2. Add to your launcher's JVM arguments**
-
-```
--javaagent:/path/to/hue-mc-universal-1.0.0.jar
-```
+1. Download `hue-mc-universal-1.0.0.jar` from the [latest release](https://github.com/403-html/HueMC/releases/latest).
+2. Add the following to your launcher's JVM arguments:
+   ```
+   -javaagent:/path/to/hue-mc-universal-1.0.0.jar
+   ```
 
 | Launcher | Where |
 |---|---|
@@ -38,6 +32,17 @@ Download `hue-mc-universal-1.0.0.jar` from releases (works for all supported ver
 | ATLauncher | Instance → Edit → Java/Minecraft → Java arguments |
 
 Safe to leave in all profiles. No-op on non-Mac and on versions without a detector.
+
+### Method 2 — Build from source
+
+```bash
+git clone https://github.com/403-html/HueMC.git
+cd HueMC
+./gradlew :versions:mc-universal:build
+# → versions/mc-universal/build/libs/hue-mc-universal-1.0.0.jar
+```
+
+Then add the built jar to your launcher as shown above.
 
 ## How it works
 
